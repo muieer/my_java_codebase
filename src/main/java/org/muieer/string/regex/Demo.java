@@ -8,11 +8,27 @@ public class Demo {
     public static void main(String[] args) {
 
         // 比较 matches 方法和 find 方法区别
-        demo1();
+//        demo1();
+
+        // 正则转义
+        replaceDemo();
 
     }
 
+    public static void replaceDemo() {
 
+        // 正斜杠转义
+        String str = "\\"; // 字符串转义后为反斜杠 \
+        System.out.println(str.replaceAll("\\\\", "q"));
+        // 使用 Pattern.quote 实现正则表达式的输入转义
+        System.out.println(str.replaceAll(Pattern.quote("\\"), "q"));
+
+        str = "\\n\n\\"; //字符串转义后为 反斜杠，n，换行，反斜杠
+        // 正则表达式现字符串转义为 反斜杠，反斜杠，n，再正则转义为 \n，最后正则转义为换行符
+        System.out.println(str.replaceAll("\\\n", "q"));
+        System.out.println(str.replaceAll(Pattern.quote("\n"), "q"));
+
+    }
 
     public static void demo1() {
 
